@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harshita | About Me</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<script>
+  const image = document.querySelector('.clickable-img');
+
+  image.addEventListener('click', () => {
+    image.classList.add('clicked');
+    setTimeout(() => {
+      image.classList.remove('clicked');
+    }, 400); // Same as animation duration
+  });
+</script>
+<body>
+  <header>
+    <h1 class="fade-in">Hi, I'm Harshita</h1>
+    <img src="Screenshot 2024-11-18 181747.png" alt="Harshita's Photo" width="200" class="clickable-img" >
+    
+    <nav>
+      <a href="index.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="education.html">Education</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  
+  </header>
+
+  <main class="slide-up">
+    <section>
+      <h2>About Me</h2>
+      <p>
+        I’m a passionate programmer and creative designer with a strong interest in building interactive web, mobile, and desktop applications.
+        I enjoy solving real-world problems through code and transforming ideas into user-friendly digital experiences.
+      </p>
+      <p>
+        I'm skilled in <strong>Python</strong>, <strong>Java</strong>, <strong>C#</strong>, <strong>Ionic Framework</strong>, <strong>MongoDB</strong>, and <strong>Express.js</strong>. 
+        I’ve built projects ranging from Sudoku games to e-commerce applications, using both frontend and backend technologies.
+      </p>
+      <p>
+        I recently graduated with a diploma in <strong>Computer Programming</strong> from <strong>Sheridan College</strong>, and I’m continuously learning new technologies and tools to improve my craft.
+      </p>
+      <p>
+        Outside of coding, I love UI/UX design, creating digital invitation cards, exploring new software tools, and sharing my knowledge with others.
+        My goal is to contribute to innovative tech solutions and eventually work as a full-stack developer.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
