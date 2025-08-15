@@ -1,22 +1,33 @@
-/* General reset & font */
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Global Styles */
 body {
   margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background-color: #f9f9f9;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f7fa;
   color: #333;
+  line-height: 1.6;
 }
 
-/* Header */
+/* Header with gradient background */
 header {
-  background-color: #222;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
   color: white;
-  padding: 1rem;
   text-align: center;
+  padding: 1.5rem 1rem;
   position: sticky;
   top: 0;
   z-index: 10;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* Navbar */
 nav {
   margin-top: 10px;
 }
@@ -24,69 +35,76 @@ nav {
 nav a {
   color: white;
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 12px;
   font-weight: 600;
+  position: relative;
 }
 
-nav a:hover {
-  color: #00aaff;
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: white;
+  transition: width 0.3s ease;
 }
 
-/* Cards (Projects, Education sections) */
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Cards */
 .card {
   background: white;
-  padding: 1rem;
-  margin: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 1.2rem;
+  border-radius: 10px;
+  margin: 1rem auto;
+  max-width: 800px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
+.card h3 {
+  margin-top: 0;
+}
+
+/* Links as buttons */
 .card a {
   display: inline-block;
-  margin-top: 8px;
-  background: #00aaff;
+  background: #2575fc;
   color: white;
-  padding: 6px 12px;
-  border-radius: 4px;
+  padding: 8px 14px;
+  border-radius: 5px;
   text-decoration: none;
+  margin-top: 10px;
+  transition: background 0.3s ease;
 }
 
 .card a:hover {
-  background: #0077cc;
+  background: #1b5fd3;
 }
 
-/* Responsive Layout */
-@media (max-width: 768px) {
-  nav a {
-    display: block;
-    padding: 8px 0;
-  }
-  .card {
-    margin: 0.5rem;
-  }
-}
-
-/* Animation */
+/* Fade-in animation */
 .fade-in {
-  animation: fadeIn 1s ease-in;
-}
-
-.slide-up {
-  animation: slideUp 0.8s ease-out;
+  animation: fadeIn 1s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 8px 0;
+  }
 }
