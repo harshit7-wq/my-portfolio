@@ -1,82 +1,92 @@
-/* Basic Styling */
+/* General reset & font */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f0f4f8;
   margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f9f9f9;
   color: #333;
 }
 
+/* Header */
 header {
-  background: #0d1117;
+  background-color: #222;
   color: white;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
-  animation: slideDown 1s ease;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav {
+  margin-top: 10px;
 }
 
 nav a {
-  margin: 0 1rem;
-  color: #58a6ff;
+  color: white;
   text-decoration: none;
-  font-weight: bold;
+  margin: 0 10px;
+  font-weight: 600;
 }
 
-main {
-  padding: 2rem;
-  max-width: 900px;
-  margin: auto;
+nav a:hover {
+  color: #00aaff;
 }
 
+/* Cards (Projects, Education sections) */
 .card {
   background: white;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-.card:hover {
-  transform: scale(1.03);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Animations */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 8px;
+  background: #00aaff;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.card a:hover {
+  background: #0077cc;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    padding: 8px 0;
+  }
+  .card {
+    margin: 0.5rem;
+  }
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes slideDown {
-  from { transform: translateY(-30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.fade-in {
-  animation: fadeIn 1s ease-in-out;
-}
-
-.slide-up {
-  animation: slideUp 1s ease-in-out;
-}
-.clickable-img {
-  width: 200px;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.clickable-img.clicked {
-  animation: moveImage 0.4s ease;
-}
-
-@keyframes moveImage {
-  0% { transform: scale(1) rotate(0deg); }
-  25% { transform: scale(1.05) rotate(2deg); }
-  50% { transform: scale(1.1) rotate(-2deg); }
-  75% { transform: scale(1.05) rotate(1deg); }
-  100% { transform: scale(1) rotate(0deg); }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
